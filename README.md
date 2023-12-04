@@ -55,11 +55,11 @@ gcloud auth login
 ```
 - Build your Docker image and tag it for the Google Container Registry: Execute the below command to create a Docker image from your current directory's Dockerfile and tag it with a version and project path suitable for upload to GCR.
 ```
-docker buildx build --platform linux/amd64 -t gcr.io/airflow-github/mlops:firstbuild -f Dockerfile .
+docker buildx build --platform linux/amd64 -f Dockerfile -t us-east1-docker.pkg.dev/modelmonitoring-406915/modelmonitoring/kub:v1 . --load
 ```
 - Upload the Docker image to your Google Container Registry: Use the below command to push the tagged image to GCR, making it available for deployment within your GCP projects.
 ```
-docker push gcr.io/airflow-github/mlops:firstbuild
+docker push us-east1-docker.pkg.dev/modelmonitoring-406915/modelmonitoring/kub:v1
 ```
 ### 4. Kubernetes Deployment
 
