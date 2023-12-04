@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlops-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mlops
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: mlops
+    spec:
+      containers:
+      - name: mlops
+        image: us-east1-docker.pkg.dev/modelmonitoring-406915/modelmonitoring/kub@sha256:e4fa8854cd3f48004d62557357601de3826b018544df4f443c6e4e407daf781c
