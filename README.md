@@ -93,7 +93,7 @@ spec:
     spec:
       containers:
       - name: mlops
-        image: gcr.io/airflow-github/mlops:firstbuild
+        image: us-east1-docker.pkg.dev/modelmonitoring-406915/modelmonitoring/kub@sha256:e4fa8854cd3f48004d62557357601de3826b018544df4f443c6e4e407daf781c
 ```
 
 - `apiVersion: apps/v1`: Specifies the API version of Kubernetes used for the Deployment manifest.
@@ -106,7 +106,7 @@ spec:
 - `rollingUpdate: maxSurge: 1`: Allows one extra pod to be created above the desired number of replicas during the update.
 - `template: metadata: labels: app: mlops`: Describes the pod templates used by the deployment, labeling the pods with `app: mlops`.
 - `spec: containers: - name: mlops`: Defines the container specifications within the pod, setting the name for the container as `mlops`.
-- `image: gcr.io/airflow-github/mlops:firstbuild`: Specifies the container image to use for the pod, pointing to the `firstbuild` tag of the `mlops` image in Google Container Registry.
+- `image: us-east1-docker.pkg.dev/modelmonitoring-406915/modelmonitoring/kub@sha256:e4fa8854cd3f48004d62557357601de3826b018544df4f443c6e4e407daf781c`: Specifies the container image to use for the pod, pointing to the `v1` tag of the `kub` image in Google Container Registry.
 
 
 ### 5. Create Horizontal Pod Autoscaler (HPA)
